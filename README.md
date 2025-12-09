@@ -1,2 +1,0 @@
-# slipknot
-mi banda favorita
