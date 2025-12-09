@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Tema Libre</title>
+
+  <style>
+    body {
+      background-image: url('https://giffiles.alphacoders.com/109/109952.gif');
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .mover-texto {
+      animation: mover 1s infinite alternate;
+    }
+
+    .mover-img {
+      width: 200px;
+      animation: moverImg 4s infinite alternate;
+    }
+
+    @keyframes mover {
+      from { transform: translateX(0); }
+      to { transform: translateX(100px); }
+    }
+
+    @keyframes moverImg {
+      from { transform: translateY(0); }
+      to { transform: translateY(40px); }
+    }
+
+    .formulario {
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="mover-texto">Proyecto Slipknot</h1>
+
+  <p>
+    Slipknot nació en Des Moines, Iowa, una ciudad sin mucha escena musical.
+    Los primeros miembros fueron Shawn Crahan (Clown), Paul Gray, y Joey Jordison, quienes tocaban en bandas locales distintas antes de unirse.
+  </p>
+
+  <p>
+    Nace Slipknot (1995–1998): Máscaras, caos y un sonido nuevo.
+    En 1995 adoptan oficialmente el nombre Slipknot (título de una canción temprana).
+    La alineación se estabiliza con 9 miembros:
+    <br>Corey Taylor – Voz
+    <br>Mick Thomson – Guitarra
+    <br>Jim Root – Guitarra
+    <br>Paul Gray – Bajo
+    <br>Joey Jordison – Batería
+    <br>Shawn “Clown” Crahan – Percusión
+    <br>Chris Fehn – Percusión
+    <br>Craig Jones – Samplers/teclados
+    <br>Sid Wilson – DJ
+  </p>
+
+  <!-- VIDEO -->
+  <center>
+    <video width="500" controls>
+      <!-- REEMPLAZA ESTE SRC POR UNO REAL -->
+      <source src="file:///C:/Users/josea/Videos/Slipknot%20-%20Jim%20Root%20forgets%20how%20to%20play%20Psychosocial(480P).mp4" type="video/mp4">
+      Tu navegador no soporta video.
+    </video>
+  </center>
+
+  <p>
+    En mayo de 2010, el bajista Paul Gray falleció por una sobredosis accidental.
+    Fue un golpe devastador para la banda, que incluso pensó en separarse.
+    Paul era uno de los fundadores y principal compositor.
+    En 2013 muere también Joey Jordison (expulsado en 2013), generando otra gran herida en la historia del grupo.
+  </p>
+
+  <center>
+    <img src="https://i.redd.it/6dc8723yags91.jpg" class="mover-img">
+  </center>
+  <h2>Formulario de Compras</h2>
+  <div class="formulario">
+    <form id="formCompra">
+      <label>Nombre:</label><br>
+      <input type="text" id="nombre" placeholder="Escribe aquí tu nombre"><br><br>
+      <label>Correo:</label><br>
+      <input type="email" id="correo" placeholder="correo@example.com"><br><br>
+      <label>Selecciona lo que deseas comprar:</label><br><br>
+      <input type="checkbox" name="compras" value="Anillos"> Anillos <br>
+      <input type="checkbox" name="compras" value="Máscaras"> Máscaras <br>
+      <input type="checkbox" name="compras" value="Álbumes"> Álbumes <br><br>
+      <label>Tipo de envío:</label><br>
+      <input type="radio" name="envio" value="Normal"> Envío normal <br>
+      <input type="radio" name="envio" value="Rápido"> Envío rápido <br><br>
+      <label>Fecha de entrega preferida:</label><br>
+      <input type="date" id="fechaEntrega"><br><br>
+      <input type="button" value="Comprar" onclick="enviarCorreo()">
+    </form>
+  </div>
+  <script>
+    function enviarCorreo() {
+      const nombre = document.getElementById('nombre').value;
+      const correo = document.getElementById('correo').value;
+      const fecha = document.getElementById('fechaEntrega').value;
+      const checkboxes = document.querySelectorAll('input[name="compras"]:checked');
+      let productos = [];
+      checkboxes.forEach(cb => productos.push(cb.value));
+      productos = productos.join(", ");
+      const envioRadio = document.querySelector('input[name="envio"]:checked');
+      const envio = envioRadio ? envioRadio.value : "No seleccionado";
+      const destinatario = "tucorreo@gmail.com";
+      const asunto = encodeURIComponent("Pedido de compras Slipknot");
+      const cuerpo = encodeURIComponent(
+        `Nombre: ${nombre}\nCorreo: ${correo}\nProductos: ${productos}\nTipo de envío: ${envio}\nFecha de entrega: ${fecha}`
+      );
+      window.location.href = `mailto:${destinatario}?subject=${asunto}&body=${cuerpo}`;
+    }
+    </script>
+  <h2>MIS CANCIONES FAVORITAS</h2>
+  <center>
+    <img src="https://wallpapercave.com/wp/ShehNoy.jpg"
+         width="400"
+         height="250"
+         usemap="#linkMap"
+         style="border-radius:10px;">
+    <map name="linkMap">
+      <area shape="rect"
+            coords="0,0,400,83"
+            href="https://youtu.be/5abamRO41fE?list=RD5abamRO41fE&t=6"
+            target="_blank"
+            alt="Video 1">
+      <area shape="rect"
+            coords="0,83,400,166"
+            href="https://youtu.be/6fVE8kSM43I?list=RD6fVE8kSM43I&t=1"
+            target="_blank"
+            alt="Video 2"> 
+      <area shape="rect"
+            coords="0,166,400,250"
+            href="https://youtu.be/JGNqvH9ykfA?list=RDJGNqvH9ykfA"
+            target="_blank"
+            alt="Video 3">
+    </map>
+  </center>
+</body>
+</html>
